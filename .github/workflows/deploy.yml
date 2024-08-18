@@ -31,9 +31,10 @@ jobs:
           echo SERVICE_NAME=${{ secrets.SERVICE_NAME }} >> .env
           cat .env
 
-      - name: Deploy to AWS
+      - name: SLS Deploy
+        uses: serverless/github-action@master
+        with:
+          args: deploy
         env:
-          SERVICE_NAME: ${{ secrets.SERVICE_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: npx serverless deploy --service ${{ env.SERVICE_NAME }} --stage prod

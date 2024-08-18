@@ -1,4 +1,7 @@
-service: ${opt:service, 'default-service-name'}
+custom:
+  serviceName: ${env:SERVICE_NAME, 'default-service-name'}
+
+service: ${self:custom.serviceName}
 frameworkVersion: "3"
 useDotenv: true
 
