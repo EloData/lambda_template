@@ -1,0 +1,44 @@
+{
+  "name": "aws-serverless",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "serverless offline start",
+    "deploy": "serverless deploy --verbose",
+    "remove:resources": "serverless remove",
+    "migrate:dev": "prisma migrate dev",
+    "format": "prettier --write . && git add .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.583.0",
+    "aws-sdk": "^2.1377.0",
+    "axios": "^1.4.0",
+    "class-validator": "^0.14.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "serverless": "^3.32.2",
+    "serverless-deployment-bucket": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
+    "dotenv": "^16.0.3",
+    "helmet": "^7.0.0",
+    "husky": "^8.0.3",
+    "morgan": "^1.10.0",
+    "prettier": "^2.8.8",
+    "serverless-dotenv": "^1.0.0-beta.2",
+    "serverless-offline": "^13.6.0",
+    "serverless-webpack": "^5.14.0",
+    "ts-loader": "^9.4.3",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "tscpaths": "^0.0.9",
+    "typescript": "^5.0.4",
+    "webpack": "^5.87.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
