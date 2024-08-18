@@ -1,4 +1,4 @@
- export class SendEmailHandler {
+ export class ReadHandler {
   async handler(event: any, context) { 
 
     return {

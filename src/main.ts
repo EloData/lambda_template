@@ -1,5 +1,5 @@
-import { SendEmailHandler } from "./functions/email/handler";
+import { ReadHandler } from "./functions/read/handler";
 
-const sendEmail = new SendEmailHandler().handler;
+const read = new ReadHandler().handler;
 
-export { sendEmail };
+export { read };

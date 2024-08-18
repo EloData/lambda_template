@@ -1,4 +1,4 @@
-service: ${env:SERVICE_NAME}
+service: ${env:SERVICE_NAME, 'default-service-name'}
 frameworkVersion: "3"
 useDotenv: true
 
@@ -9,24 +9,18 @@ provider:
   memorySize: 128
   timeout: 3
   environment:
-    FROM_ADDRESS: ${env:FROM_ADDRESS}
+    SERVICE_NAME: ${env:SERVICE_NAME}
   deploymentBucket:
     name: launchmotion-sls-functions
-  iamRoleStatements:
-    - Effect: "Allow"
-      Action:
-        - "ses:SendEmail"
-        - "ses:SendRawEmail"
-      Resource: "arn:aws:ses:us-east-1:576679484800:identity/*"
 
 functions:
-  sendEmail:
-    handler: src/main.sendEmail
-    description: Envio de emails
+  read:
+    handler: src/main.read
+    description: Leitura de dados
     events:
       - httpApi:
-          method: POST
-          path: /send-email/{type}
+          method: GET
+          path: /read
 
 plugins:
   - serverless-webpack
