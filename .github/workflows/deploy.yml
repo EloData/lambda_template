@@ -28,7 +28,7 @@ jobs:
           echo AWS_REGION=${{ secrets.AWS_REGION }} >> .env
           echo AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} >> .env
           echo AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} >> .env
-          echo FROM_ADDRESS=${{ vars.FROM_ADDRESS }} >> .env
+          echo SERVICE_NAME=${{ vars.SERVICE_NAME }} >> .env
           cat .env
 
       - name: SLS Deploy
