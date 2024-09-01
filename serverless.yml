@@ -1,5 +1,5 @@
 service: ${self:custom.serviceName}
-frameworkVersion: "3"
+frameworkVersion: '3'
 useDotenv: true
 
 provider:
@@ -12,13 +12,34 @@ provider:
     name: launchmotion-sls-functions
 
 functions:
-  read:
-    handler: src/main.read
-    description: Leitura de dados
+  getPaginatedRows:
+    handler: src/main.getPaginatedRows
+    description: Leitura de dados com paginação
     events:
       - httpApi:
           method: GET
-          path: /read
+          path: /list
+  getAllRows:
+    handler: src/main.getAllRows
+    description: Leitura de dados sem paginação
+    events:
+      - httpApi:
+          method: GET
+          path: /listAll
+  addRows:
+    handler: src/main.addRows
+    description: Registro de dados
+    events:
+      - httpApi:
+          method: POST
+          path: /add
+  removeRows:
+    handler: src/main.removeRows
+    description: Remoção de dados
+    events:
+      - httpApi:
+          method: DELETE
+          path: /remove
 
 plugins:
   - serverless-webpack
@@ -29,7 +50,7 @@ plugins:
 custom:
   serviceName: ${env:SERVICE_NAME, 'default-service-name'}
   webpack:
-    webpackConfig: "webpack.config.js"
+    webpackConfig: 'webpack.config.js'
   serverless-offline:
     useChildProcess: true
-    httpPort: 3000
+    httpPort: 3001

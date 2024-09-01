@@ -1,5 +1,11 @@
-import { ReadHandler } from "./functions/read/handler";
+import { HandleAddRows } from './functions/addRows/handler';
+import { HandleGetAllRows } from './functions/getAllRows/handler';
+import { HandleGetPaginatedRows } from './functions/getPaginatedRows/handler';
+import { HandleRemoveRows } from './functions/removeRows/handler';
 
-const read = new ReadHandler().handler;
+const getPaginatedRows = new HandleGetPaginatedRows().handler;
+const getAllRows = new HandleGetAllRows().handler;
+const addRows = new HandleAddRows().handler;
+const removeRows = new HandleRemoveRows().handler;
 
-export { read };
+export { getPaginatedRows, getAllRows, addRows, removeRows };

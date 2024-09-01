@@ -1,24 +1,37 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
     "module": "commonjs",
-    "lib": ["es6"],
-    "allowJs": true,
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2021",
+    "sourceMap": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types/"
+    ],
+    "outDir": "./dist",
     "rootDir": ".",
     "baseUrl": "./",
-    "outDir": "./dist",
-    "removeComments": true,
-    "typeRoots": ["./node_modules/@types", "./src/@types"],
     "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "incremental": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "strictBindCallApply": true,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     }
-  },
-  "include": ["./src/**/*", "index.ts"],
-  "exclude": ["node_modules"]
+  }
 }
